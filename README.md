@@ -26,7 +26,7 @@ Stock AI is an AI-powered financial assistant that helps you research stocks, an
 | **Language** | TypeScript |
 | **AI** | [Vercel AI SDK](https://sdk.vercel.ai) (`ai` v4) + OpenAI models |
 | **Financial data** | [Financial Modeling Prep (FMP)](https://financialmodelingprep.com) API |
-| **Database** | PostgreSQL via [Drizzle ORM](https://orm.drizzle.team) |
+| **Database** | [Supabase](https://supabase.com) PostgreSQL via [Drizzle ORM](https://orm.drizzle.team) |
 | **Auth** | [NextAuth.js](https://next-auth.js.org) (credentials + fingerprint auto-login) |
 | **UI** | [shadcn/ui](https://ui.shadcn.com) + [Tailwind CSS](https://tailwindcss.com) + [Radix UI](https://www.radix-ui.com) |
 | **Charts** | [Recharts](https://recharts.org) |
@@ -47,7 +47,7 @@ components/          # React components (chat, tables, charts, UI)
 lib/
   ai/                # AI models, prompts, middleware, tools
     tools/           # Financial tools (prices, statements, metrics, news)
-  api/               # FMP data adapter & stock filters
+  api/               # FMP data adapter
   db/                # Drizzle schema, queries, migrations
 hooks/               # React hooks
 public/              # Static assets (fonts, images)
@@ -81,7 +81,7 @@ Required variables:
 | `OPENAI_API_KEY` | AI model access | https://platform.openai.com/api-keys |
 | `FMP_API_KEY` | Financial market data (free tier) | https://site.financialmodelingprep.com/developer/docs |
 | `AUTH_SECRET` | Session signing secret | `openssl rand -base64 32` |
-| `POSTGRES_URL` | PostgreSQL connection string | Vercel Postgres, Supabase, or Neon |
+| `POSTGRES_URL` | PostgreSQL connection string | Supabase (or any Postgres provider) |
 
 Optional variables:
 
@@ -162,7 +162,7 @@ The project is currently deployed at [stock-ai-one-azure.vercel.app](https://sto
 
 ## 📄 License
 
-Licensed under the [Apache License 2.0](LICENSE).
+Licensed under the [MIT License](LICENSE).
 
 ---
 
