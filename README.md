@@ -158,7 +158,7 @@ The app uses automatic **fingerprint-based authentication**: on first visit, a f
 3. Add the environment variables (`OPENAI_API_KEY`, `FMP_API_KEY`, `AUTH_SECRET`, `POSTGRES_URL`).
 4. Deploy — the build runs database migrations automatically.
 
-The project is currently deployed at[ [stock-ai-one-azure.vercel.app](https://stock-ai-one-azure.vercel.app).
+The project is currently deployed at https://stock-ai-github.vercel.app/
 
 ## 📄 License
 
