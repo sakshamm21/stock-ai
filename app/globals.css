@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Solarized Light */
+    :root {
+        --background: 44 87% 94%;
+        --foreground: 196 13% 45%;
+        --card: 46 42% 88%;
+        --card-foreground: 196 13% 45%;
+        --popover: 46 42% 88%;
+        --popover-foreground: 196 13% 45%;
+        --primary: 205 69% 49%;
+        --primary-foreground: 44 87% 94%;
+        --secondary: 46 42% 88%;
+        --secondary-foreground: 196 13% 45%;
+        --muted: 46 42% 88%;
+        --muted-foreground: 180 7% 60%;
+        --accent: 175 59% 40%;
+        --accent-foreground: 44 87% 94%;
+        --destructive: 1 71% 52%;
+        --destructive-foreground: 44 87% 94%;
+        --border: 180 7% 70%;
+        --input: 180 7% 70%;
+        --ring: 205 69% 49%;
+        --radius: 0.5rem;
+        --sidebar-background: 46 42% 88%;
+        --sidebar-foreground: 194 14% 40%;
+        --sidebar-primary: 205 69% 49%;
+        --sidebar-primary-foreground: 44 87% 94%;
+        --sidebar-accent: 46 42% 84%;
+        --sidebar-accent-foreground: 196 13% 45%;
+        --sidebar-border: 180 7% 70%;
+        --sidebar-ring: 205 69% 49%;
+        --chart-1: 205 69% 49%;
+        --chart-2: 175 59% 40%;
+        --chart-3: 45 100% 35%;
+        --chart-4: 331 64% 52%;
+        --chart-5: 18 80% 44%;
+    }
+
+    /* Solarized Dark */
+    .dark {
+        --background: 192 100% 11%;
+        --foreground: 186 8% 55%;
+        --card: 192 81% 14%;
+        --card-foreground: 186 8% 55%;
+        --popover: 192 81% 14%;
+        --popover-foreground: 186 8% 55%;
+        --primary: 205 69% 49%;
+        --primary-foreground: 192 100% 11%;
+        --secondary: 189 80% 18%;
+        --secondary-foreground: 186 8% 55%;
+        --muted: 189 80% 18%;
+        --muted-foreground: 194 14% 40%;
+        --accent: 175 59% 40%;
+        --accent-foreground: 192 100% 11%;
+        --destructive: 1 71% 52%;
+        --destructive-foreground: 192 100% 11%;
+        --border: 189 80% 18%;
+        --input: 189 80% 18%;
+        --ring: 205 69% 49%;
+        --sidebar-background: 192 100% 11%;
+        --sidebar-foreground: 186 8% 55%;
+        --sidebar-primary: 205 69% 49%;
+        --sidebar-primary-foreground: 192 100% 11%;
+        --sidebar-accent: 189 80% 18%;
+        --sidebar-accent-foreground: 186 8% 55%;
+        --sidebar-border: 189 80% 18%;
+        --sidebar-ring: 205 69% 49%;
+        --chart-1: 205 69% 49%;
+        --chart-2: 175 59% 40%;
+        --chart-3: 45 100% 35%;
+        --chart-4: 331 64% 52%;
+        --chart-5: 18 80% 44%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    @font-face {
+        font-family: "geist";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url(/fonts/geist.woff2) format("woff2");
+    }
+
+    @font-face {
+        font-family: "geist-mono";
+        font-style: normal;
+        font-weight: 100 900;
+        src: url(/fonts/geist-mono.woff2) format("woff2");
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-foreground/15;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-foreground/25;
+}
+
+/* Gradient text utility */
+.gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#268BD2] via-[#2AA198] to-[#B58900];
+}
+
+/* Subtle glow for primary elements */
+.glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+}
+
+/* Card hover lift */
+.card-lift {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#268BD2]/10;
+}
+
+/* Animated gradient background for hero areas */
+.animated-gradient {
+    background: linear-gradient(
+        120deg,
+        hsl(var(--primary) / 0.08),
+        hsl(var(--primary) / 0.02),
+        hsl(var(--primary) / 0.08)
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.skeleton {
+    * {
+        pointer-events: none !important;
+    }
+
+    *[class^="text-"] {
+        color: transparent;
+        @apply rounded-md bg-foreground/20 select-none animate-pulse;
+    }
+
+    .skeleton-bg {
+        @apply bg-foreground/10;
+    }
+
+    .skeleton-div {
+        @apply bg-foreground/20 animate-pulse;
+    }
+}
+
+.ProseMirror {
+    outline: none;
+}
+
+.cm-editor,
+.cm-gutters {
+    @apply bg-background dark:bg-zinc-800 outline-none selection:bg-zinc-900 !important;
+}
+
+.ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground,
+.ͼo.cm-selectionBackground,
+.ͼo.cm-content::selection {
+    @apply bg-zinc-200 dark:bg-zinc-900 !important;
+}
+
+.cm-activeLine,
+.cm-activeLineGutter {
+    @apply bg-transparent !important;
+}
+
+.cm-activeLine {
+    @apply rounded-r-sm !important;
+}
+
+.cm-lineNumbers {
+    @apply min-w-7;
+}
+
+.cm-foldGutter {
+    @apply min-w-3;
+}
+
+.cm-lineNumbers .cm-activeLineGutter {
+    @apply rounded-l-sm !important;
+}
+
+.suggestion-highlight {
+    @apply bg-[#EEE8D5] hover:bg-[#93A1A1] dark:hover:bg-[#2AA198]/50 dark:text-[#FDF6E3] dark:bg-[#2AA198]/40;
+}
